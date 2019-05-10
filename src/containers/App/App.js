@@ -1,11 +1,13 @@
 import React from 'react';
+import { TodoForm } from '../TodoForm/TodoForm';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <h1>To-do Tracker</h1>
+      <TodoForm />
     </div>
   );
-}
+};
 
 export default App;
