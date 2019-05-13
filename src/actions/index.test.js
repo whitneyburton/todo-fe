@@ -11,6 +11,16 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   });
 
+  it('should return a type of SET_ITEMS with an array of items', () => {
+    const mockItems = [{ name: 'Study Ruby on Rails', done: false, todo_id: 2 }];
+    const expected = {
+      type: 'SET_ITEMS',
+      items: mockItems
+    };
+    const result = actions.setItems(mockItems);
+    expect(result).toEqual(expected);
+  });
+
   it('should return a type of SET_LOADING with a boolean', () => {
     const mockLoading = true;
     const expected = {
