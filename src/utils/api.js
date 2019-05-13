@@ -17,7 +17,7 @@ export const fetchData = async (path, method, data = null) => {
       };
   };
 
-  const url = 'localhost:3001/api/v1' + path;
+  const url = 'http://localhost:3001/api/v1' + path;
   const response = await fetch(url, options);
 
   if (response.status === 204) return 'success'
