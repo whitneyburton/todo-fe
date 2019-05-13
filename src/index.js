@@ -5,10 +5,12 @@ import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { rootReducer } from './reducers';
 
-const store = createStore(rootReducer);
+const devTools = composeWithDevTools(applyMiddleware(thunk));
+const store = createStore(rootReducer, devTools);
 const provider = (
   <Provider store={store}>
       <App />
