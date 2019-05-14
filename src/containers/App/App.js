@@ -9,11 +9,11 @@ export const App = ({ getTodos, getItems }) => {
   useEffect(() => {
     getTodos();
     getItems(16)
-  }, []);
+  });
 
   return (
     <div className='App'>
-      <h1>Tracker</h1>
+      <h1 className='tracker-title'>TRACKER</h1>
       <TodoForm />
       <TodoContainer />
     </div>

@@ -4,8 +4,10 @@ exports[`App should match the snapshot 1`] = `
 <div
   className="App"
 >
-  <h1>
-    Tracker
+  <h1
+    className="tracker-title"
+  >
+    TRACKER
   </h1>
   <ConnectFunction />
   <ConnectFunction />

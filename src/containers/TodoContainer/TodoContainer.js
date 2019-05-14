@@ -1,18 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { TodoCard } from '../../components/TodoCard/TodoCard';
 
 export const TodoContainer = ({ todos, items }) => {
-  const toggleComplete = (id, bool) => {
-  }
-
   const allTodos = todos.map(todo => {
     const todoItem = items.find(item => item.todo_id === todo.id)
-    return todoItem ? <div>
-      <h1>{todo.title}</h1>
-      <h3 onClick={() => toggleComplete(todoItem.id)} className={todoItem.done ? 'complete' : 'incomplete'}>{todoItem.name}</h3>
-    </div> :
-    <div>
-      <h1>{todo.title}</h1>
+    return todoItem ? <TodoCard todo={todo} todoItem={todoItem} /> :
+    <div className='todo-card'>
+      <h1 className='todo-title'>{todo.title}</h1>
     </div>
   })
 

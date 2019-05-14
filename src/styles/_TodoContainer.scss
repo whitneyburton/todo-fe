@@ -1,4 +1,11 @@
 .TodoContainer {
+  .todo-card {
+    border: 1px solid black;
+    width: 70%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
   .complete {
     text-decoration: line-through;
   }
