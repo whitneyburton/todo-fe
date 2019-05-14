@@ -1,4 +1,4 @@
-import { setLoading, setError, setTodos, setItems } from '../actions';
+import { setLoading, setError, setTodos, setItem } from '../actions';
 import { fetchData } from '../utils/api';
 
 export const getTodos = () => {
@@ -9,12 +9,9 @@ export const getTodos = () => {
       dispatch(setTodos(todos));
       let allItems = [];
       todos.forEach(async todo => {
-        const response = await fetchData(`/todos/${todo.id}/items`, 'GET');
-        const items = response.map(item => {
-          return { name: item.name, done: item.done, todo_id: item.todo_id }
-        })
+        const items = await fetchData(`/todos/${todo.id}/items`, 'GET');
         allItems.push(items[0])
-        dispatch(setItems(allItems))
+        dispatch(setItem(items[0]))
       })
       return todos;
     } catch (error) {
