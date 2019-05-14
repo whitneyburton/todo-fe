@@ -5,7 +5,7 @@ import { getItems } from '../../thunks/getItems';
 import TodoForm from '../TodoForm/TodoForm';
 import TodoContainer from '../TodoContainer/TodoContainer';
 
-export const App = ({ getTodos, getItems }) => {
+export const App = ({ getTodos }) => {
   useEffect(() => {
     getTodos();
   });
@@ -20,8 +20,7 @@ export const App = ({ getTodos, getItems }) => {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  getTodos: () => dispatch(getTodos()),
-  getItems: id => dispatch(getItems(id))
+  getTodos: () => dispatch(getTodos())
 });
 
 export default connect(null, mapDispatchToProps)(App);

@@ -9,9 +9,9 @@ export const getTodos = () => {
       dispatch(setTodos(todos));
       let allItems = [];
       todos.forEach(async todo => {
-        const items = await fetchData(`/todos/${todo.id}/items`, 'GET');
-        allItems.push(items[0])
-        dispatch(setItem(items[0]))
+        const item = await fetchData(`/todos/${todo.id}/items`, 'GET');
+        allItems.push(item[0])
+        dispatch(setItem(item[0]))
       })
       return todos;
     } catch (error) {
