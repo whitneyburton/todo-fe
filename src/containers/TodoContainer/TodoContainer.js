@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 import { TodoCard } from '../../components/TodoCard/TodoCard';
 
 export const TodoContainer = ({ todos, items }) => {
-  const allTodos = todos.map(todo => {
-    const todoItem = items.find(item => item.todo_id === todo.id);
-    return <TodoCard key={todo.id} todo={todo} todoItem={todoItem} />;
+  let allTodos = [];
+  todos.forEach(todo => {
+    items.forEach(item => {
+      if (item.todo_id === todo.id) {
+        allTodos.push(<TodoCard key={todo.id} todo={todo} todoItem={item} />);
+      }
+    });
   });
 
   return <div className='TodoContainer'>{allTodos}</div>;
