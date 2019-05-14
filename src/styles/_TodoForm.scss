@@ -1,5 +1,29 @@
 .TodoForm {
-  input {
+  .title-input,
+  .item-input {
     border-radius: 5px;
+    width: 80%;
+    margin: 5px auto;
+    padding: 10px;
+        
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .submit-button,
+  .clear-button {
+    width: 40%;
+    margin: 5px auto;
+    padding: 6px;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .clear-button {
+    margin: 5px auto 5px 5px;
   }
 }
