@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateItems } from '../../thunks/updateItems';
+import { deleteTodo } from '../../thunks/deleteTodo';
 import { TodoCard } from '../../components/TodoCard/TodoCard';
 
-export const TodoContainer = ({ todos, items, updateItems }) => {
+export const TodoContainer = ({ todos, items, updateItems, deleteTodo }) => {
   let allTodos = [];
   todos.forEach(todo => {
     items.forEach(item => {
@@ -14,6 +15,8 @@ export const TodoContainer = ({ todos, items, updateItems }) => {
             todo={todo}
             todoItem={item}
             updateItems={updateItems}
+            deleteTodo={deleteTodo}
+            items={items}
           />
         );
       }
@@ -31,6 +34,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   updateItems: (todoId, itemId, bool, todoItem) =>
     dispatch(updateItems(todoId, itemId, bool, todoItem)),
+  deleteTodo: (todoId, itemId, items) => dispatch(deleteTodo(todoId, itemId, items))
 });
 
 export default connect(
