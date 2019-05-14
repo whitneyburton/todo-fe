@@ -8,6 +8,11 @@ export const setItems = items => ({
   items
 });
 
+export const setTodo = todo => ({
+  type: 'SET_TODO',
+  todo
+});
+
 export const setLoading = loading => ({
   type: 'SET_LOADING',
   loading
