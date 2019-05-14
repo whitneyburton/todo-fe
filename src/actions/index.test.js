@@ -41,6 +41,16 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   });
 
+  it('should return a type of UPDATE_ITEM with an item', () => {
+    const mockItem = { name: 'Study Ruby on Rails', done: true, todo_id: 2 };
+    const expected = {
+      type: 'UPDATE_ITEM',
+      item: mockItem
+    };
+    const result = actions.updateItem(mockItem);
+    expect(result).toEqual(expected);
+  });
+
   it('should return a type of SET_LOADING with a boolean', () => {
     const mockLoading = true;
     const expected = {
