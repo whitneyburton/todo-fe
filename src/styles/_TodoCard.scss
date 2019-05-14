@@ -20,6 +20,7 @@
   .item-container {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .item-complete {
       text-decoration: line-through;
