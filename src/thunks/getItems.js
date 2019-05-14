@@ -6,11 +6,8 @@ export const getItems = (todoId = '') => {
     try {
       dispatch(setLoading(true));
       const response = await fetchData(`/todos/${todoId}/items`, 'GET');
-      const items = response.map(item => {
-        return { name: item.name, done: item.done, todo_id: item.todo_id }
-      })
-      dispatch(setItems(items));
-      return items;
+      dispatch(setItems(response));
+      return response;
     } catch (error) {
       dispatch(setError(error.message));
     }
