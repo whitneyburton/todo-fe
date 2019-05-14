@@ -1,9 +1,13 @@
 import React from 'react';
 
-export const TodoCard = ({ todo, todoItem, updateItems }) => {
+export const TodoCard = ({ todo, todoItem, updateItems, deleteTodo, items }) => {
   const toggleComplete = (todoId, bool, todoItem) => {
     updateItems(todoId, bool, todoItem);
   };
+
+  const deleteCard = (todoId, itemId, items) => {
+    deleteTodo(todoId, itemId, items);
+  }
 
   return (
     <div className='TodoCard'>
@@ -17,6 +21,7 @@ export const TodoCard = ({ todo, todoItem, updateItems }) => {
           {todoItem.name}
         </p>
       </div>
+      <button className='delete-todo' onClick={() => deleteCard(todo.id, todoItem.id, items)}/>
     </div>
   )
 };
