@@ -8,6 +8,11 @@ export const setTodo = todo => ({
   todo
 });
 
+export const deleteTodo = id => ({
+  type: 'DELETE_TODO',
+  id
+});
+
 export const setItems = items => ({
   type: 'SET_ITEMS',
   items

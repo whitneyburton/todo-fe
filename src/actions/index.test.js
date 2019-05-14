@@ -20,6 +20,16 @@ describe('actions', () => {
     const result = actions.setTodo(mockTodo);
     expect(result).toEqual(expected);
   });
+
+  it('should return a type of DELETE_TODO with an id', () => {
+    const mockId = 23;
+    const expected = {
+      type: 'DELETE_TODO',
+      id: mockId
+    };
+    const result = actions.deleteTodo(mockId);
+    expect(result).toEqual(expected);
+  });
   
   it('should return a type of SET_ITEMS with an array of items', () => {
     const mockItems = [{ name: 'Study Ruby on Rails', done: false, todo_id: 2 }];
