@@ -8,7 +8,6 @@ import TodoContainer from '../TodoContainer/TodoContainer';
 export const App = ({ getTodos, getItems }) => {
   useEffect(() => {
     getTodos();
-    getItems(16)
   });
 
   return (
