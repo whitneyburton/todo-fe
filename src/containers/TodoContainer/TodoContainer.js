@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateItem } from '../../thunks/updateItem';
+import { updateItems } from '../../thunks/updateItems';
 import { TodoCard } from '../../components/TodoCard/TodoCard';
 
-export const TodoContainer = ({ todos, items, updateItem }) => {
+export const TodoContainer = ({ todos, items, updateItems }) => {
   let allTodos = [];
   todos.forEach(todo => {
     items.forEach(item => {
       if (item.todo_id === todo.id) {
-        allTodos.push(<TodoCard key={todo.id} todo={todo} todoItem={item} updateItem={updateItem} />);
+        allTodos.push(
+          <TodoCard
+            key={todo.id}
+            todo={todo}
+            todoItem={item}
+            updateItems={updateItems}
+          />
+        );
       }
     });
   });
@@ -22,7 +29,11 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  updateItem: (todoId, itemId, bool) => dispatch(updateItem(todoId, itemId, bool))
-})
+  updateItems: (todoId, itemId, bool, todoItem) =>
+    dispatch(updateItems(todoId, itemId, bool, todoItem)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoContainer);

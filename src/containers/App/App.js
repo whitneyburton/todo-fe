@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getTodos } from '../../thunks/getTodos';
-import { getItems } from '../../thunks/getItems';
 import TodoForm from '../TodoForm/TodoForm';
 import TodoContainer from '../TodoContainer/TodoContainer';
 
