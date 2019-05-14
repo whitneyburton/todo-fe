@@ -7,10 +7,8 @@ export const getTodos = () => {
       dispatch(setLoading(true));
       const todos = await fetchData('/todos', 'GET');
       dispatch(setTodos(todos));
-      let allItems = [];
       todos.forEach(async todo => {
         const item = await fetchData(`/todos/${todo.id}/items`, 'GET');
-        allItems.push(item[0])
         dispatch(setItem(item[0]))
       })
       return todos;
