@@ -2,7 +2,7 @@ import * as actions from './index';
 
 describe('actions', () => {
   it('should return a type of SET_TODOS with an array of todos', () => {
-    const mockTodos = [{ name: 'Complete developer assessment', created_by: 3 }];
+    const mockTodos = [{ name: 'Complete developer assessment', created_by: 2 }];
     const expected = {
       type: 'SET_TODOS',
       todos: mockTodos
@@ -10,7 +10,17 @@ describe('actions', () => {
     const result = actions.setTodos(mockTodos);
     expect(result).toEqual(expected);
   });
-
+  
+  it('should return a type of SET_TODO with a todo', () => {
+    const mockTodo = { name: 'Complete developer assessment', created_by: 2 };
+    const expected = {
+      type: 'SET_TODO',
+      todo: mockTodo
+    };
+    const result = actions.setTodo(mockTodo);
+    expect(result).toEqual(expected);
+  });
+  
   it('should return a type of SET_ITEMS with an array of items', () => {
     const mockItems = [{ name: 'Study Ruby on Rails', done: false, todo_id: 2 }];
     const expected = {
@@ -21,13 +31,13 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return a type of SET_TODO with an array of items', () => {
-    const mockTodo = { name: 'Study Ruby on Rails', done: false, todo_id: 2 };
+  it('should return a type of SET_ITEM with an item', () => {
+    const mockItem = { name: 'Study Ruby on Rails', done: false, todo_id: 2 };
     const expected = {
-      type: 'SET_TODO',
-      todo: mockTodo
+      type: 'SET_ITEM',
+      item: mockItem
     };
-    const result = actions.setTodo(mockTodo);
+    const result = actions.setItem(mockItem);
     expect(result).toEqual(expected);
   });
 

@@ -3,14 +3,19 @@ export const setTodos = todos => ({
   todos
 });
 
+export const setTodo = todo => ({
+  type: 'SET_TODO',
+  todo
+});
+
 export const setItems = items => ({
   type: 'SET_ITEMS',
   items
 });
 
-export const setTodo = todo => ({
-  type: 'SET_TODO',
-  todo
+export const setItem = item => ({
+  type: 'SET_ITEM',
+  item
 });
 
 export const setLoading = loading => ({
