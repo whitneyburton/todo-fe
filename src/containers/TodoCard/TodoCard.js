@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip'
+import { connect } from 'react-redux';
+import { updateItems } from '../../thunks/updateItems';
+import { deleteTodo } from '../../thunks/deleteTodo';
 
 export const TodoCard = ({ todo, todoItem, updateItems, deleteTodo, items }) => {
+
+
   const toggleComplete = (todoId, bool, todoItem) => {
     updateItems(todoId, bool, todoItem);
   };
@@ -35,3 +40,15 @@ export const TodoCard = ({ todo, todoItem, updateItems, deleteTodo, items }) => 
     </div>
   )
 };
+
+export const mapStateToProps = state => ({
+  items: state.items
+});
+
+export const mapDispatchToProps = dispatch => ({
+  updateItems: (todoId, itemId, bool, todoItem) =>
+    dispatch(updateItems(todoId, itemId, bool, todoItem)),
+  deleteTodo: (todoId, itemId, items) => dispatch(deleteTodo(todoId, itemId, items))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoCard);
