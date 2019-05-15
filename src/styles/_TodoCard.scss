@@ -55,16 +55,32 @@
     }
   }
 
-  .delete-todo {
-    background: url(../images/delete-icon.svg);    
-    background-size: cover;
-    border: none;
-    height: 25px;
-    width: 25px;
-    margin-left: auto;
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
 
-    &:hover {
-      background-color: transparent;
+    .delete-todo {
+      background: url(../images/delete-icon.svg);    
+      background-size: cover;
+      border: none;
+      height: 25px;
+      width: 25px;
+  
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  
+    .edit-todo {
+      background: url(../images/edit-icon.svg);    
+      background-size: cover;
+      border: none;
+      height: 25px;
+      width: 25px;
+  
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }
