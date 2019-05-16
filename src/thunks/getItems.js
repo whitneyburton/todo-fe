@@ -5,7 +5,7 @@ export const getItems = (todoId = '') => {
   return async dispatch => {
     try {
       dispatch(setLoading(true));
-      const response = await fetchData(`/todos/${todoId}/items`, 'GET');
+      const response = await fetchData(`/users/todos/${todoId}/items`, 'GET');
       dispatch(setItems(response));
       return response;
     } catch (error) {

@@ -5,7 +5,7 @@ export const postTodo = (title, userId) => {
   return async dispatch => {
     try {
       dispatch(setLoading(true));
-      const response = await fetchData(`/todos?title=${title}&created_by=${userId}`, 'POST');
+      const response = await fetchData(`/users/${userId}/todos?title=${title}&user_id=${userId}`, 'POST');
       dispatch(setTodo(response));
       return response;
     } catch (error) {

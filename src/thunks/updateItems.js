@@ -4,13 +4,13 @@ import { fetchData } from '../utils/api';
 export const updateItems = (
   todoId = '',
   bool = false,
-  todoItem = {}
+  userId = null
 ) => {
   return async dispatch => {
     try {
       dispatch(setLoading(true));
-      await fetchData(`/todos/${todoId}/items/${todoItem.id}?done=${!bool}`, 'PUT');
-      const updatedItem = await fetchData(`/todos/${todoId}/items/${todoItem.id}`, 'GET'); 
+      await fetchData(`/users/${userId}/todos/${todoId}/items/${todoId}?done=${!bool}`, 'PUT');
+      const updatedItem = await fetchData(`/users/${userId}/todos/${todoId}/items/${todoId}`, 'GET'); 
       dispatch(updateItem(updatedItem))
     } catch (error) {
       dispatch(setError(error.message));

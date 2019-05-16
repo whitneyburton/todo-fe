@@ -1,12 +1,12 @@
 import { setLoading, setError, setTodos, setItems } from '../actions';
 import { fetchData } from '../utils/api';
 
-export const deleteTodo = (todoId, itemId, items) => {
+export const deleteTodo = (todoId, itemId, items, userId) => {
   return async dispatch => {
     try {
       dispatch(setLoading(true));
-      await fetchData(`/todos/${todoId}`, 'DELETE');
-      const updatedTodos = await fetchData('/todos', 'GET')
+      await fetchData(`/users/${userId}/todos/${todoId}`, 'DELETE');
+      const updatedTodos = await fetchData(`/users/${userId}/todos`, 'GET')
       dispatch(setTodos(updatedTodos));
       const updatedItems = items.filter(item => item.id !== itemId)
       dispatch(setItems(updatedItems))
