@@ -10,7 +10,7 @@ Run `npm start` and visit localhost:3000 in your browser
 
 #### Back-end
 Run `git clone git@github.com:whitneyburton/todo-be.git`  
-Run `npm install` from the root directory  
+Run `bundle install` from the root directory  
 Run `rails server` and visit localhost:3001 in your browser 
 Associated back-end repository can be found [here](https://github.com/whitneyburton/todo-be). 
 *The API request instructions can be found at the back-end repository's README.*
