@@ -14,7 +14,7 @@ export const TodoContainer = ({ todos, items }) => {
     });
   });
 
-  return <div className='TodoContainer'>{allTodos}</div>;
+  return <div className='TodoContainer'>{allTodos.reverse()}</div>;
 };
 
 export const mapStateToProps = state => ({
