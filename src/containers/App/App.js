@@ -1,36 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getTodos } from '../../thunks/getTodos';
 import { getUser } from '../../thunks/getUser';
 import TodoForm from '../TodoForm/TodoForm';
 import TodoContainer from '../TodoContainer/TodoContainer';
+import { Welcome } from '../../components/Welcome/Welcome';
+import { withRouter, Route, Switch } from 'react-router-dom';
 
-export const App = ({ getTodos, getUser, userId }) => {
+export const App = ({ userId, error, location,  history }) => {
   useEffect(() => {
-    retrieveUser();
-  }, []);
-  
-  const retrieveUser = async () => {
-    const id = await getUser('whitney@gmail.com', '123123');
-    getTodos(id);
-  }
+    !userId && history.replace('/');
+  })
 
   return (
-    userId ? 
     <div className='App'>
       <h1 className='tracker-title'>TRACKER</h1>
-      <TodoForm />
-      <TodoContainer />
-      </div> :
-      <div className='App'>
-        <h1 className='tracker-title'>TRACKER</h1>
-        <h1 className='signin-prompt'>Please sign in or register!</h1>
-      </div>
-  );
+      <Switch>
+        <Route exact path='/' render={() => (
+          <Welcome history={history} />
+        )}/>
+        <Route
+          path='/home'
+          render={() => (
+            <Fragment>
+              <TodoForm />
+              <TodoContainer />
+            </Fragment>
+          )}
+        />
+      </Switch>
+    </div>
+  )
 };
 
 export const mapStateToProps = state => ({
-  userId: state.userId
+  userId: state.userId,
+  error: state.error
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -38,4 +43,9 @@ export const mapDispatchToProps = dispatch => ({
   getUser: (email, password) => dispatch(getUser(email, password))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
