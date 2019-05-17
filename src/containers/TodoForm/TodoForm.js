@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { postTodo } from '../../thunks/postTodo';
 import { postItem } from '../../thunks/postItem';
+import { logoutUser } from '../../thunks/logoutUser';
 
-export const TodoForm = ({ postTodo, postItem, userId }) => {
+export const TodoForm = ({ postTodo, postItem, userId, logoutUser }) => {
   const [title, editTitle] = useState('');
   const [item, editItem] = useState('');
 
@@ -19,8 +20,13 @@ export const TodoForm = ({ postTodo, postItem, userId }) => {
     editItem('');
   };
 
+  const handleSignout = () => {
+    logoutUser(userId);
+  }
+
   return (
     <div className='TodoForm'>
+      <button onClick={handleSignout}>Sign Out</button>
       <label for='title-input'>To-do title</label>
       <input
         className='title-input'
@@ -58,7 +64,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   postTodo: (todo, id) => dispatch(postTodo(todo, id)),
   postItem: (name, done, id, userId) =>
-    dispatch(postItem(name, done, id, userId))
+    dispatch(postItem(name, done, id, userId)),
+  logoutUser: id => dispatch(logoutUser(id))
 });
 
 export default connect(
