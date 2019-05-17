@@ -1,7 +1,7 @@
 .TodoCard {
-  border: 1px solid #a3a3a3;
+  border: 1px solid #c3c3c3;
   width: 80%;
-  margin: 10px auto;
+  margin: 16px auto;
   padding: 10px;
   border-radius: 5px;
   background-color: #ebebec;
@@ -19,9 +19,16 @@
   }
 
   .todo-title {
+    font-family: 'Viga';
     font-size: 1.5em;
     font-weight: 400;
     margin-bottom: 8px;
+    color: #2e4d4d;
+  }
+
+  .todo-date {
+    display: block;
+    font-size: 11px;
   }
 
   .item-container {

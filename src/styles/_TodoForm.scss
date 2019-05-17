@@ -1,8 +1,11 @@
 .TodoForm {
   .signout-button {
-    width: 30%;
+    width: 9%;
     padding: 5px;
     border-radius: 5px;
+    color: #a09e9e;
+    padding: 6px;
+    margin-left: 5px;
   }
 
   .title-input,
@@ -19,7 +22,7 @@
 
   .submit-button,
   .clear-button {
-    width: 40%;
+    width: 35%;
     margin: 5px auto;
     padding: 6px;
     border-radius: 5px;

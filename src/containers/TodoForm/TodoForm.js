@@ -21,12 +21,11 @@ export const TodoForm = ({ postTodo, postItem, userId, logoutUser }) => {
   };
 
   const handleSignout = () => {
-    logoutUser(userId);
+    logoutUser('');
   }
 
   return (
     <div className='TodoForm'>
-      <button className='signout-button' onClick={handleSignout}>Sign Out</button>
       <label for='title-input'>To-do title</label>
       <input
         className='title-input'
@@ -53,6 +52,8 @@ export const TodoForm = ({ postTodo, postItem, userId, logoutUser }) => {
       <button className='clear-button' onClick={() => clearTodo()}>
         Clear
       </button>
+      <button className='signout-button' onClick={() => handleSignout()}>Sign Out</button>
+
     </div>
   );
 };
