@@ -1,7 +1,12 @@
 export const setUser = id => ({
   type: 'SET_USER',
   id
-})
+});
+
+export const logoutUser = id => ({
+  type: 'LOGOUT_USER',
+  id
+});
 
 export const setTodos = todos => ({
   type: 'SET_TODOS',

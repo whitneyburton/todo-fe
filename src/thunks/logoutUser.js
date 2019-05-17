@@ -1,14 +1,13 @@
 import { setLoading, setError, setUser } from '../actions';
 import { fetchData } from '../utils/api';
 
-export const getUser = (email, password) => {
+export const logoutUser = id => {
   return async dispatch => {
     try {
       dispatch(setLoading(true));
-      const user = await fetchData(`/sessions?email=${email}&password=${password}`, 'POST');
-      dispatch(setUser(user.id));
+      await fetchData(`/sessions?id=${id}`, 'DELETE');
+      dispatch(setUser(''));
       dispatch(setError(''));
-      return user.id;
     } catch (error) {
       dispatch(setError(error.message));
     }
