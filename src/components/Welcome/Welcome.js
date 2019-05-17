@@ -1,15 +1,12 @@
 import React from 'react';
 import LoginForm from '../../containers/LoginForm/LoginForm';
-import SignupForm from '../../containers/SignupForm/SignupForm';
 
 export const Welcome = ({ history }) => {
   return (
     <div className='Welcome'>
       <h3>Welcome to Tracker!</h3>
-      <p>Log in to track your project to-do's.</p>
+      <h4>Log in to track your project to-do's.</h4>
       <LoginForm history={history} />
-      <p>OR</p>
-      <SignupForm />
     </div>
   )
 }
