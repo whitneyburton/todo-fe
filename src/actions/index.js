@@ -23,6 +23,11 @@ export const deleteTodo = id => ({
   id
 });
 
+export const updateTodo = todo => ({
+  type: 'UPDATE_TODO',
+  todo
+});
+
 export const setItems = items => ({
   type: 'SET_ITEMS',
   items
@@ -36,7 +41,7 @@ export const setItem = item => ({
 export const updateItem = item => ({
   type: 'UPDATE_ITEM',
   item
-})
+});
 
 export const setLoading = loading => ({
   type: 'SET_LOADING',
