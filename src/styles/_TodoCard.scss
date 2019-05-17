@@ -5,11 +5,18 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #ebebec;
-  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23acacac' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: $pattern;
   text-align: left;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: $shadow;
+    transition: all 200ms ease-in-out;
+    width: 81%;
+  }
 
   .todo-title {
     font-size: 1.5em;
@@ -27,12 +34,12 @@
     }
   
     .checked-icon {
-      background: url(../images/checked-icon.svg);    
+      background: $checked-icon;    
       @include icons(20px);
     }
   
     .unchecked-icon {
-      background: url(../images/unchecked-icon.svg);    
+      background: $unchecked-icon;    
       @include icons(20px);
     }
   }
@@ -42,13 +49,19 @@
     justify-content: flex-end;
 
     .delete-todo {
-      background: url(../images/delete-icon.svg);
+      background: $delete-icon;
       @include icons(25px);
     }
   
     .edit-todo {
-      background: url(../images/edit-icon.svg);    
+      background: $edit-icon;    
       @include icons(25px);
     }
+  }
+
+  h1,
+  p {
+    overflow: scroll;
+    max-width: 97%;
   }
 }

@@ -2,11 +2,15 @@
   text-align: center;
   
   .tracker-title {
+    font-family: 'Viga';
     color: #2e4d4d;
-    letter-spacing: 2px;
-    margin: 20px;
+    letter-spacing: 6px;
+    padding: 20px;
     font-size: 2.5em;
-    font-weight: 400;
+    font-weight: 600;
+    background: whitesmoke;
+    margin-bottom: 25px;
+    box-shadow: $shadow;
   }
 
   button {
@@ -15,5 +19,9 @@
     &:hover {
       background-color: whitesmoke;
     }
+  }
+
+  img {
+    height: 33px;
   }
 }

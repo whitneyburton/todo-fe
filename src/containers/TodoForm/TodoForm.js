@@ -26,7 +26,7 @@ export const TodoForm = ({ postTodo, postItem, userId, logoutUser }) => {
 
   return (
     <div className='TodoForm'>
-      <button onClick={handleSignout}>Sign Out</button>
+      <button className='signout-button' onClick={handleSignout}>Sign Out</button>
       <label for='title-input'>To-do title</label>
       <input
         className='title-input'
