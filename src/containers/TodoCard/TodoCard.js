@@ -29,7 +29,10 @@ export const TodoCard = ({
         className='item-container'
         onClick={() => toggleComplete(todo.id, todoItem.done)}
       >
-        <button className={todoItem.done ? 'checked-icon' : 'unchecked-icon'} />
+        <ReactTooltip id='toggle-tip' effect='solid'>
+          Toggle complete
+        </ReactTooltip>
+        <button data-tip data-for='toggle-tip' className={todoItem.done ? 'checked-icon' : 'unchecked-icon'} />
         <p className={todoItem.done ? 'item-complete' : 'item-incomplete'}>
           {todoItem.name}
         </p>
