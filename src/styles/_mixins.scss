@@ -1,0 +1,16 @@
+@mixin icons($measurements) {
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  height: $measurements;
+  width: $measurements;
+  margin-right: 8px;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

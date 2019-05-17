@@ -26,7 +26,6 @@ export const LoginForm = ({ getUser, getTodos, error, history }) => {
   return (
     <Fragment>
       <form autoComplete='off' onSubmit={handleSubmit} className='LoginForm'>
-        <h3>Log in</h3>
         <label>
           Email
           <input
@@ -50,7 +49,7 @@ export const LoginForm = ({ getUser, getTodos, error, history }) => {
           />
         </label>
         <button type='submit' onClick={handleSubmit}>
-          Submit
+          Log in
         </button>
       </form>
       {error && <h4>Incorrect email or password. Please try again.</h4>}

@@ -28,30 +28,12 @@
   
     .checked-icon {
       background: url(../images/checked-icon.svg);    
-      background-size: cover;
-      border: none;
-      cursor: pointer;
-      height: 20px;
-      width: 20px;
-      margin-right: 8px;
-
-      &:focus {
-        outline: none;
-      }
+      @include icons(20px);
     }
   
     .unchecked-icon {
       background: url(../images/unchecked-icon.svg);    
-      background-size: cover;
-      border: none;
-      cursor: pointer;
-      height: 20px;
-      width: 20px;
-      margin-right: 8px;
-
-      &:focus {
-        outline: none;
-      }
+      @include icons(20px);
     }
   }
 
@@ -60,35 +42,13 @@
     justify-content: flex-end;
 
     .delete-todo {
-      background: url(../images/delete-icon.svg);    
-      background-size: cover;
-      border: none;
-      height: 25px;
-      width: 25px;
-  
-      &:hover {
-        background-color: transparent;
-      }
-
-      &:focus {
-        outline: none;
-      }
+      background: url(../images/delete-icon.svg);
+      @include icons(25px);
     }
   
     .edit-todo {
       background: url(../images/edit-icon.svg);    
-      background-size: cover;
-      border: none;
-      height: 25px;
-      width: 25px;
-  
-      &:hover {
-        background-color: transparent;
-      }
-
-      &:focus {
-        outline: none;
-      }
+      @include icons(25px);
     }
   }
 }
